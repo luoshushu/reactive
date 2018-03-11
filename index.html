@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ZH-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>移动端页面demo</title>
+  <!-- <link rel="stylesheet" href="style.css" media="(max-width:500px)"> -->
+<style>
+  * {margin: 0;padding: 0;}
+  a {text-decoration: none;color: #000;}
+  ul,ol {list-style: none;}
+  header{
+    padding: 20px;
+    position: relative;
+  }
+  /* button的位置 */
+  header>button{
+    position: absolute;
+    top:30px;
+    right: 20px;
+  }
+  .logo {
+    height: 50px;
+    width: 50px;
+    background: darkcyan;
+    border-radius: 50%;
+  }
+  /* 导航栏默认看不见 */
+  .nav {
+    display: none;
+    /* background: darkkhaki; */
+  }
+  /* 激活看得见 */
+  .nav.active {
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav>li{
+    background:deepskyblue;
+    padding: 5px 10px;
+  }
+  /* 默认情况下pc端的导航为隐藏 */
+  .nav2{
+    display: none;  
+  }
+
+/* pc端样式 */
+@media (min-width:450px) {
+  header>button{
+      display: none;
+  }
+  .nav,.nav.active{
+    display:none;
+  }
+  .nav2{
+    display:block;
+  }
+  header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  header .nav2{
+    display: flex;
+    margin-left: 20px ;
+  }
+  header .nav2>li{
+    margin: 5px 10px;
+  }
+  
+}
+
+</style>
+</head>
+
+<body>
+  <header>
+    <div class="logo"></div>
+    <button id="aa">菜单栏</button>
+    <div class="box">
+      <!-- 移动端导航 -->
+      <ul id="yy" class="nav">
+        <li><a href="#">导航1</a></li>
+        <li><a href="#">导航2</a></li>
+        <li><a href="#">导航3</a></li>
+        <li><a href="#">导航4</a></li>
+        <li><a href="#">导航5</a></li>
+      </ul>
+      <!-- pc端导航 -->
+      <ul class="nav2">
+          <li><a href="#">导航1</a></li>
+          <li><a href="#">导航2</a></li>
+          <li><a href="#">导航3</a></li>
+          <li><a href="#">导航4</a></li>
+          <li><a href="#">导航5</a></li>
+     </ul>
+    </div>
+  </header>
+
+  <script>
+    aa.onclick = function () {
+      yy.classList.toggle('active')
+    }
+  </script>
+</body>
+
+</html>
